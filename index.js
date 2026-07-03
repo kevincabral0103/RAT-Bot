@@ -218,7 +218,7 @@ async function postWeeklyReport(guild, manual = false) {
     return { ok: false, reason: "Alerts channel missing." };
   }
 
-  await guild.members.fetch();
+  
 
   const rosterRole = getRosterRole(guild, cfg);
   if (!rosterRole) return { ok: false, reason: "No roster role set." };
@@ -298,7 +298,7 @@ async function runInactivityCheck(guild) {
   const alertsChannel = guild.channels.cache.get(cfg.alert_channel_id);
   if (!alertsChannel || !alertsChannel.isTextBased()) return { sent: false, reason: "Alert channel missing or not text-based." };
 
-  await guild.members.fetch();
+  
 
   const rosterRole = getRosterRole(guild, cfg);
   if (!rosterRole) {
